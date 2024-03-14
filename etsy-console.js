@@ -112,7 +112,11 @@ function titleReplace(titleString) {
             console.error('Metin kopyalanırken bir hata oluştu:', err);
         });
     }
-
+    
+    function virgulluSayiCevir(virgulluSayi) {
+        // Virgüllü sayıyı normal sayıya çevir
+        return parseFloat(virgulluSayi.replace(',', '.'));
+    }
     // Ürün sayfasında mı kontrol ediyoruz
     if (window.location.href.indexOf("etsy.com/listing/") !== -1) {
         // Listelenme tarihini bulmak için gerekli sınıf
@@ -173,7 +177,7 @@ function titleReplace(titleString) {
             const reviewItemElement = document.querySelector(' #same-listing-reviews-tab > span');
             let review ="";
             if (reviewItemElement!== null){
-                var reviewCount = reviewItemElement.textContent.trim();
+                var reviewCount = parseInt(reviewItemElement.textContent.trim());
             if (reviewCount > 10) {
                 reviewCount = "★" + reviewCount;
             }
