@@ -1,11 +1,12 @@
 // ==UserScript==
 // @name         Etsy Listelenme Tarihi ve Favori Sayısı
-// @namespace    https://github.com/cengaver/Etsy-Console
+// @namespace    https://github.com/cengaver
 // @version      0.2
 // @description  Etsy'de bir ürünün listelenme tarihini ve favori sayısını gösterir.
 // @author       Your Name
 // @match        https://www.etsy.com/*
 // @grant        GM_addStyle
+// @icon         https://raw.githubusercontent.com/cengaver/userscripts/master/Etsy-Console/icon.png
 // ==/UserScript==
 
 (function() {
