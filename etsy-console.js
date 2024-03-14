@@ -145,7 +145,10 @@
             const tagElements = concatenateListItems(tagContainer.querySelectorAll('li.wt-action-group__item-container a'));
             conText = titleReplace(concatenatedTextValue + "," + tagElements);
         }
-
+        // title and tag text includen sheet
+        listingTitleElement.innerHTML = `
+            ${listingTitleElement.textContent}<br><hr><div class="wt-bg-turquoise-tint wt-text-gray wt-text-caption wt-pt-xs-1 wt-pb-xs-1">${listingTitle} <br><hr>${conText}</div>
+        `;
         if (listingDate && favoriteCount) {
             console.log("Listing Date: " + listingDate);
             console.log("Favorite Count: " + favoriteCount);
@@ -175,7 +178,7 @@
             const script = document.querySelector('script[type="application/ld+json"]');
             const jsonData = JSON.parse(script.textContent.trim());
             console.log(jsonData);
-            const eligibleQuantity = jsonData.offers.eligibleQuantity;
+            let eligibleQuantity = jsonData.offers.eligibleQuantity;
             const offerCount = jsonData.offers.offerCount;
             console.log("Eligible Quantity:", eligibleQuantity);
             let sales ="";
