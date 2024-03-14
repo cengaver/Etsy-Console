@@ -177,7 +177,7 @@ function titleReplace(titleString) {
             const reviewItemElement = document.querySelector(' #same-listing-reviews-tab > span');
             let review ="";
             if (reviewItemElement!== null){
-                var reviewCount = parseInt(reviewItemElement.textContent.trim());
+                var reviewCount = virgulluSayiCevir(reviewItemElement.textContent.trim());
             if (reviewCount > 10) {
                 reviewCount = "★" + reviewCount;
             }
