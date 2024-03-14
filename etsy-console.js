@@ -3,7 +3,7 @@
 // @namespace    https://github.com/cengaver
 // @version      0.2
 // @description  Etsy'de bir ürünün listelenme tarihini ve favori sayısını gösterir.
-// @author       Your Name
+// @author       Cengaver
 // @match        https://www.etsy.com/*
 // @grant        GM_addStyle
 // @icon         https://raw.githubusercontent.com/cengaver/userscripts/master/Etsy-Console/icon.png
