@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Etsy Listelenme Tarihi ve Favori Sayısı
 // @namespace    https://github.com/cengaver
-// @version      0.21
+// @version      0.211
 // @description  Etsy'de bir ürünün listelenme tarihini ve favori sayısını gösterir.
 // @author       Cengaver
 // @match        https://www.etsy.com/*
