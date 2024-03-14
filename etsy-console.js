@@ -6,7 +6,7 @@
 // @author       Cengaver
 // @match        https://www.etsy.com/*
 // @grant        GM_addStyle
-// @icon         https://raw.githubusercontent.com/cengaver/userscripts/master/Etsy-Console/icon.png
+// @icon         data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
 // ==/UserScript==
 
 (function() {
