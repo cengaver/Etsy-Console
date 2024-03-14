@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Etsy Listing Date and Favorite Count
 // @namespace    https://github.com/cengaver
-// @version      0.211
+// @version      0.212
 // @description  Displays the listing date and favorite count of a product on Etsy.
 // @author       Cengaver
 // @match        https://www.etsy.com/*
