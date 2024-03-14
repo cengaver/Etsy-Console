@@ -193,9 +193,11 @@ function titleReplace(titleString) {
             // Alınan JSON verisini konsola yazdır
             console.log(jsonData);
             const eligibleQuantity = jsonData.offers.eligibleQuantity;
+            const offerCount = jsonData.offers.offerCount;
             console.log("eligibleQuantity:", eligibleQuantity);
             let sales ="";
-            if (eligibleQuantity!== null){
+            if (eligibleQuantity=== undefined){ eligibleQuantity = offerCount}
+            if (eligibleQuantity!== undefined){
                var salesCount = 999 - eligibleQuantity;
             if (salesCount > 50) {
                 salesCount = "★" + salesCount;
