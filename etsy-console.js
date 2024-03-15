@@ -6,7 +6,7 @@
 // @author       Cengaver
 // @match        https://www.etsy.com/*
 // @grant        GM_addStyle
-// @icon         data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
+// @icon         https://www.google.com/s2/favicons?domain=etsy.com
 // ==/UserScript==
 
 (function() {
@@ -141,10 +141,13 @@
         const tagContainer = document.querySelector('.wt-action-group.wt-list-inline.wt-mb-xs-2');
         if (!tagContainer) {
             conText = titleReplace(concatenatedTextValue);
+            console.log("tag nothing");
+            console.log(conText);
         } else {
             const tagElements = concatenateListItems(tagContainer.querySelectorAll('li.wt-action-group__item-container a'));
             conText = titleReplace(concatenatedTextValue + "," + tagElements);
         }
+
         // title and tag text includen sheet
         listingTitleElement.innerHTML = `
             ${listingTitleElement.textContent}<br><hr><div class="wt-bg-turquoise-tint wt-text-gray wt-text-caption wt-pt-xs-1 wt-pb-xs-1">${listingTitle} <br><hr>${conText}</div>
@@ -181,16 +184,24 @@
             let eligibleQuantity = jsonData.offers.eligibleQuantity;
             const offerCount = jsonData.offers.offerCount;
             console.log("Eligible Quantity:", eligibleQuantity);
+            console.log("Offer Count:", offerCount);
+            let stock ="";
+            const in_stockValue = Etsy.Context.data?.granify?.product?.in_stock;
+            if (in_stockValue!== undefined){
+                stock = '<p style="margin: 0;">Stk : '+in_stockValue+' </p>'
+                console.log("Stock Count: " + in_stockValue);
+            }
+            // "Etsy.Context.data" nesnesinden "carters" değerini al
+            const cartersValue = Etsy.Context.data?.granify?.product?.carters;
             let sales ="";
-            if (eligibleQuantity=== undefined){ eligibleQuantity = offerCount}
-            if (eligibleQuantity!== undefined){
-               var salesCount = 999 - eligibleQuantity;
-            if (salesCount > 50) {
-                salesCount = "★" + salesCount;
+            // Değeri kontrol et
+            if (cartersValue !== undefined) {
+                sales = '<p style="margin: 0;">Sat : '+cartersValue+' </p>';
+                console.log("Carters Value:", cartersValue);
+            } else {
+                console.log("Carters Value not found!");
             }
-                sales = '<p style="margin: 0;">Sat : '+salesCount+' </p>'
-                console.log("Sales Count: " + salesCount);
-            }
+
 
             const balloonDiv = document.createElement("div");
             balloonDiv.setAttribute("id", "etsyInfoBalloon");
@@ -199,6 +210,7 @@
                      ${bestseller}
                      ${review}
                      ${sales}
+                     ${stock}
                     <p style="margin: 0;">Fav : ${favoriteCount}</p>
                     <p style="margin: 0;">${listingDate}</p>
                     <p style="margin: 0;">Days Ago : ${daysAgoFromDate(listingDate)}</p>
